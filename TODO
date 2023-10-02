@@ -1,0 +1,7 @@
+1. Testar métodos PUT e DELETE (Feito)
+2. Criar métodos POST (Feito)
+3. Criar testes unitários
+4. Separar projeto em pastas: backend e frontend (Feito)
+---------------------------------------
+5. Criar o setup inicial do design no front-end (Feito)
+6. Implementar a captura dos dados da API pelo Frontend utilizando as melhores práticas
