@@ -11,7 +11,7 @@ Criei esse projeto com o objetivo de fortalecer meus conhecimentos em Django, Dj
 
 ### Frontend
 
-* #### Ferramentas:
+* #### Ferramentas e Pacotes:
 * React
 * Material UI
   
