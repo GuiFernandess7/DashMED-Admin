@@ -14,4 +14,10 @@ Criei esse projeto com o objetivo de fortalecer meus conhecimentos em Django, Dj
 * #### Ferramentas e Pacotes:
 * React
 * Material UI
-  
+
+-----------
+
+Preview Inicial:
+
+https://github.com/GuiFernandess7/DashMED-Admin/assets/63022500/ccfe776c-bb88-46a2-b1d5-1d4da57b0588
+
