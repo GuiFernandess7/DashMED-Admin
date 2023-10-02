@@ -14,6 +14,8 @@ Criei esse projeto com o objetivo de fortalecer meus conhecimentos em Django, Dj
 * #### Ferramentas e Pacotes:
 * React
 * Material UI
+* Nivo
+* React SWR
 
 -----------
 
