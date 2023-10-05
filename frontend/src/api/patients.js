@@ -3,7 +3,7 @@ import * as apiService from './service';
 export const patientsEndpoint = '/patients';
 
 export const getPatients = async () => {
-    apiService.readEntity(patientsEndpoint);
+    return apiService.readEntity(patientsEndpoint);
 }
 
 /* export const createPatient = (data) => apiService.createEntity(patientsEndpoint, data);
