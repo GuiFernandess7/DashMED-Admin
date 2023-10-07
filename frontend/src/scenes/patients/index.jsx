@@ -1,10 +1,14 @@
 import React from 'react'
 import {Box, Typography, useTheme} from "@mui/material";
-import {DataGrid, GridToolbar} from '@mui/x-data-grid'
+import {DataGrid, GridToolbar, GridActionsCellItem} from '@mui/x-data-grid'
 import { tokens } from '../../theme'
+import Button from '@mui/material/Button';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import LowPriorityIcon from '@mui/icons-material/LowPriority';
+import DeleteIcon from '@mui/icons-material/Delete'
 import Header from '../../components/Header';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 
 import { useState } from 'react'
 
@@ -20,13 +24,17 @@ const Patients = () => {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode);
 
+  const deletePatient = () => {
+    console.log("test")
+  }
+
   const columns = [
     {field: "id", headerName: "ID", flex: 0.5},
     {
       field: "name", 
       headerName: "Name", 
       cellClassName: "name-column--cell",
-      flex: 1
+      flex: 1,
     },
     {
       field: "age",
@@ -65,7 +73,22 @@ const Patients = () => {
           </Box>
         )
       }
+    },
+    {
+      field: 'action',
+      headerName: "Options",
+      type: 'actions',
+      width: 80,
+      flex: 1,
+      getActions: (params) => [
+        <GridActionsCellItem
+          icon={<DeleteIcon/>}
+          label="Delete"
+          onClick={deletePatient}
+        />
+      ]
     }
+    
   ]
 
   const {
@@ -79,7 +102,12 @@ const Patients = () => {
 
   return (
     <Box m="20px">
-          <Header title="PACIENTES" subtitle="Acesso a lista de pacientes"/>
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <Header title="PACIENTES" subtitle="Acesso a lista de pacientes" />
+            <Button variant="contained" color="primary">
+              Adicionar Paciente
+            </Button>
+          </Box>
           <Box m="10px 0 0 0" height="68vh" sx={{
             "& .MuiDataGrid-root": {
               border: "none"
