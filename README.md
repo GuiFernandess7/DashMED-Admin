@@ -9,6 +9,10 @@ Criei esse projeto com o objetivo de fortalecer meus conhecimentos em Django, Dj
 * Django Rest Framework
 * Postman
 
+* #### API:
+
+https://github.com/GuiFernandess7/DashMED-Admin/assets/63022500/c6088586-dcb9-4fd5-ba2d-cbdb14790925
+
 ### Frontend
 
 * #### Ferramentas e Pacotes:
