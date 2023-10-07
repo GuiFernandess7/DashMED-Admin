@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as regex
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
 import re
 
@@ -15,19 +15,37 @@ class Patient(models.Model):
         ('F', 'Female'),
     ]
 
+    PRIORITY_CHOICES = [
+        ('high', 'High'),
+        ('medium', 'Medium'),
+        ('low', 'Low'),
+    ]
+
     image = models.ImageField(name="photo", upload_to="./assets/", 
                               help_text="Upload a profile image",
                               height_field=None, width_field=None, max_length=100,
                               blank=True, null=True) # Atualizar
     name = models.CharField(max_length=40, null=False, blank=False)
+    email = models.EmailField(max_length=40, null=False, blank=False)
+    age = models.IntegerField(
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(120)
+        ], blank=False, null=False
+    )
+    priority = models.CharField(
+        max_length=10,
+        choices=PRIORITY_CHOICES,
+        default='medium'
+    )
     sex = models.CharField(choices=SEX_CHOICES, null=False, blank=False, max_length=1)
     date_of_birth = models.DateField(blank=False, null=False)
     address = models.CharField(max_length=150, blank=False, null=False)
-    cep = models.CharField(max_length=15, blank=False, null=True,
+    cep = models.CharField(max_length=15, blank=False, null=False,
                            validators=[RegexValidator(CEP_REGEX)])
-    rg = models.CharField(max_length=25, blank=False, null=True,
+    rg = models.CharField(max_length=25, blank=False, null=False,
                            validators=[RegexValidator(RG_REGEX)])
-    cpf = models.CharField(max_length=25, blank=False, null=True,
+    cpf = models.CharField(max_length=25, blank=False, null=False,
                            validators=[RegexValidator(CPF_REGEX)])
     phone_number = models.CharField(max_length=20, blank=False, null=False,
                                     validators=[RegexValidator(PHONE_REGEX)],
@@ -45,11 +63,18 @@ class Doctor(models.Model):
                               height_field=None, width_field=None, max_length=100,
                               blank=True, null=True) # Atualizar
     name = models.CharField(max_length=40, null=False, blank=False)
+    age = models.IntegerField(
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(120)
+        ], blank=False, null=False
+    )
+    email = models.CharField(max_length=40, null=False, blank=False)
     specialty = models.CharField(max_length=150)
-    rg = models.CharField(max_length=25, blank=False, null=True,
+    rg = models.CharField(max_length=25, blank=False, null=False,
                            validators=[RegexValidator(RG_REGEX)])
-    cpf = models.CharField(max_length=25, blank=False, null=True,
-                           validators=[RegexValidator(CEP_REGEX)])
+    cpf = models.CharField(max_length=25, blank=False, null=False,
+                           validators=[RegexValidator(CPF_REGEX)])
     crm = models.CharField(max_length=15, null=False, blank=False, 
                            validators=[RegexValidator(r'^CRM/[A-Z]{2}\s\d{6}$')])
     contact = models.CharField(max_length=30, blank=False, null=False,
@@ -75,6 +100,7 @@ class Medication(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     dosage = models.CharField(max_length=200, null=True, blank=True)
     instruction = models.TextField(null=True, blank=True)
+    # ADICIONAR PACIENTE ASSOCIADO A MEDICAÇÃO
 
     def __str__(self):
         return f'{self.name}'

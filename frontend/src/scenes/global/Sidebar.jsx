@@ -13,7 +13,9 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import MedicationLiquidOutlinedIcon from '@mui/icons-material/MedicationLiquidOutlined';
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import MedicalInformationOutlinedIcon from '@mui/icons-material/MedicalInformationOutlined';
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -85,7 +87,7 @@ const Sidebar = () => {
                             </IconButton>
                         </Box>
                         )}
-                    </MenuItem>
+                    </MenuItem> 
 
                     {!isCollapsed && (
                         <Box mb="25px">
@@ -94,7 +96,7 @@ const Sidebar = () => {
                             alt="profile-user"
                             width="100px"
                             height="100px"
-                            src={`../../assets/user.png`}
+                            src={`/empty-profile.jpg`}
                             style={{ cursor: "pointer", borderRadius: "50%" }}
                             />
                         </Box>
@@ -150,17 +152,17 @@ const Sidebar = () => {
                             color={colors.grey[300]}
                             sx={{ m: "15px 0 5px 20px" }}
                         >
-                            Pages
+                            Páginas
                         </Typography>
                         <Item
-                            title="Profile"
+                            title="Perfil"
                             to="/form"
                             icon={<PersonOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Calendar"
+                            title="Calendário"
                             to="/calendar"
                             icon={<CalendarTodayOutlinedIcon />}
                             selected={selected}
@@ -172,33 +174,26 @@ const Sidebar = () => {
                             color={colors.grey[300]}
                             sx={{ m: "15px 0 5px 20px" }}
                         >
-                            Charts
+                            Detalhes
                         </Typography>
                         <Item
-                            title="Bar Chart"
+                            title="Consultas"
                             to="/bar"
-                            icon={<BarChartOutlinedIcon />}
+                            icon={<MedicationLiquidOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Pie Chart"
+                            title="Exames"
                             to="/pie"
-                            icon={<PieChartOutlineOutlinedIcon />}
+                            icon={<MedicalInformationOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Line Chart"
+                            title="Pagamentos"
                             to="/line"
                             icon={<TimelineOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Geography Chart"
-                            to="/geography"
-                            icon={<MapOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />

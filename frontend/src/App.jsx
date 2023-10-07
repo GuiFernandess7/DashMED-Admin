@@ -1,8 +1,9 @@
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Routes, Route } from "react-router-dom";
-import Patients from "./components/Patients";
-import Doctors from "./components/Doctors";
+import Patients from "./scenes/patients";
+import Doctors from "./scenes/doctors";
+
 import Topbar from './scenes/global/Topbar';
 import Dashboard from "./scenes/dashboard";
 import Sidebar  from "./scenes/global/Sidebar"

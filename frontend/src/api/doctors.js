@@ -1,9 +1,9 @@
-import * as apiService from './apiService';
+import * as apiService from './service';
 
 export const doctorsEndpoint = '/doctors';
 
 export const getDoctors = () => {
-    apiService.readEntity(doctorsEndpoint);
+    return apiService.readEntity(doctorsEndpoint);
 }
 
 /* export const createDoctor = (data) => apiService.createEntity(doctorsEndpoint, data);
