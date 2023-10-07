@@ -11,7 +11,7 @@ from .serializers import PatientSerializer, DoctorSerializer
 from .models import Patient, Doctor
 
 class BaseDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [AdminOrReadOnly]  
+    permission_classes = [AllowAny]  
     serializer_class = None
     model = None
 
@@ -40,7 +40,7 @@ class BaseDetailView(RetrieveUpdateDestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class BaseListView(ListCreateAPIView):
-    permission_classes = [AdminOrReadOnly] # Mudar para [AdminOrReadOnly] 
+    permission_classes = [AllowAny]  # Mudar para [AdminOrReadOnly] 
     serializer_class = None
     model = None
 
@@ -54,7 +54,7 @@ class BaseListView(ListCreateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class BaseCreateView(CreateAPIView):
-    permission_classes = [AdminOrReadOnly]
+    permission_classes = [AllowAny]
     #permission_classes = [AdminOrReadOnly]
     serializer_class = None
     model = None
