@@ -21,5 +21,7 @@ Criei esse projeto com o objetivo de fortalecer meus conhecimentos em Django, Dj
 
 Preview (Progresso Atual):
 
+https://github.com/GuiFernandess7/DashMED-Admin/assets/63022500/74fcde5a-c615-413b-bd7c-5138df9d9c0f
+
 
 
